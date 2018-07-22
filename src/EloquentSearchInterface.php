@@ -1,6 +1,6 @@
 <?php
 
-namespace AcDevelopers\EloquentSearchable;
+namespace AcDevelopers\EloquentSearch;
 
 /**
  * Interface EloquentSearchInterface

@@ -13,7 +13,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "AcDevelopers\\EloquentSearchable\\": "src/"
+            "AcDevelopers\\EloquentSearch\\": "src/"
         }
     },
     "minimum-stability": "dev",
