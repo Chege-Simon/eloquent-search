@@ -38,7 +38,7 @@ class EloquentSearch
             $query = $query->merge(self::searchModel(new $model, $keyword));
         }
 
-        return new LengthAwarePaginator($query, $query->count(), $perPage, $currentPage);
+        return new LengthAwarePaginator($query, $query->count(), $perPage, $currentPage, $options);
     }
 
     /**
