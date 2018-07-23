@@ -1,5 +1,5 @@
 {
-    "name": "ac-developers/search",
+    "name": "ac-developers/eloquent-search",
     "description": "A simple search package for Eloquent.",
     "type": "library",
     "keywords": ["Eloquent", "Search", "Anitche Chisom"],
