@@ -14,7 +14,7 @@ Easy way to search for a keyword in all your eloquent models at once.
 <!-- /TOC -->
 
 ## 1. Installation 
-The recommended way to install eloquent searchable is by using composer.
+The recommended way to install eloquent search is by using composer.
 
 Run:
 ```
