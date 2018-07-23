@@ -32,7 +32,7 @@ trait EloquentSearchTrait
             $query->orWhere($column, 'like', "%{$keyword}%");
         }
 
-        return $query->get();
+        return $query;
     }
 
     /**

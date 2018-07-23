@@ -48,6 +48,6 @@ class EloquentSearch
      */
     static private function searchModel($model, $keyword)
     {
-        return $model->search($keyword);
+        return $model->search($keyword)->get();
     }
 }
