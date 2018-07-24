@@ -24,7 +24,41 @@ composer require ac-developers/eloquent-search
 ## 2. Usage
 Implement the `EloquentSearchInterface` in your eloquent model and then also use the `EloquentSearchTrait`, this will require you to implement a `searchColumns` method which should return an array of the columns you would want to search through in the model.
 
+```
+class Article implements EloquentSearchInterface
+{
+    use EloquentSearchTrait;
+
+    /**
+     * Return an array of all the columns to search through.
+     *
+     * @return array
+     */
+    public function searchColumns():array
+    {
+        return ['title', 'body', 'summary];
+    }
+}
+```
+
+
 Then in your controller you would use the the `EloquentSearch` class to find what your looking for. The class takes 5 arguments, but the most important is the first which is the `keyword` you want to search for and then the second is an array of all the `eloquent model` classes you would like to search through.
+
+```
+class SearchController extends Controller
+{
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Support\HtmlString|\Illuminate\View\View
+     */
+    public function __invoke(Request $request)
+    {
+        $result = EloquentSearch::search($request->get('q'),[
+            Article::class, Users:class, Blog::class 
+        ]);
+    }
+}
+```
 
 The `EloquentSearch` class will merge and return a paginated collection of all the models searched through using the `Illuminate\Pagination\LengthAwarePaginator` class. 
 
