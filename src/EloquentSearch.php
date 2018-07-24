@@ -3,6 +3,7 @@
 namespace AcDevelopers\EloquentSearch;
 
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 /**
  * Class EloquentSearch
@@ -27,6 +28,12 @@ class EloquentSearch
     {
         $query = null;
 
+        if (empty($options)) {
+            $options = [
+                'path' => Paginator::resolveCurrentPath()
+            ];
+        }
+
         foreach ($models as $model) {
 
             if ($model === reset($models)) {
@@ -38,7 +45,7 @@ class EloquentSearch
             $query = $query->merge(self::searchModel(new $model, $keyword));
         }
 
-        return new LengthAwarePaginator($query, $query->count(), $perPage, $currentPage, $options);
+        return new LengthAwarePaginator($query->forPage(null, $perPage), $query->count(), $perPage, $currentPage, $options);
     }
 
     /**
